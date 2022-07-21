@@ -98,5 +98,4 @@ func main() {
 		testCase := testCases[i]
 		fmt.Println(findMedianSortedArrays(testCase.nums1, testCase.nums2))
 	}
-
 }
