@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -65,7 +67,7 @@ func (this *Skiplist) Add(num int) {
 			if head.val == num {
 				return
 			}
-			 */
+			*/
 			if head.Next == nil || head.Next.val > num {
 				// 新增一个节点
 				node := &Node{
@@ -122,4 +124,24 @@ func GetLevel(maxLevel int) int {
 		break
 	}
 	return level
+}
+
+func test(n int) string {
+	var str string
+	rand.Seed(time.Now().Unix())
+	for i := 0; i < n; i++ {
+		tmp := rand.Intn(62)
+		if tmp <= 9 {
+			str += strconv.Itoa(tmp)
+		} else if tmp >= 10 && tmp <= 35{
+			str += string('A' + (tmp-10))
+		} else {
+			str += string('a' + (tmp-36))
+		}
+	}
+	return str
+}
+
+func main() {
+	fmt.Println(test(6))
 }
